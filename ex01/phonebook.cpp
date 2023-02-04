@@ -1,55 +1,48 @@
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
-void Contact::set_field(int type, std::string* in, const std::string& out) {
-  const std::string whitespace = " \t\n\v\r\f";
+PhoneBook::PhoneBook() {index = 0;}
+PhoneBook::~PhoneBook() {}
 
-  in->clear();
-  std::cout << out;
-  if (!(std::getline(std::cin >> std::ws, *in)) || std::cin.eof())
-    exit(1);
-  in->erase(in->find_last_not_of(whitespace) + 1);
-  switch (type) {
-    case F_F_NAME:
-      _f_name = *in;
-      break;
-    case F_L_NAME:
-      _l_name = *in;
-      break;
-    case F_ALIAS:
-      _alias = *in;
-      break;
-    case F_PHONE:
-      _phone = *in;
-      break;
-    case F_SECRET:
-      _secret = *in;
-      break;
+// static std::string print_max_string(std::string str)
+// {
+//   if (str.length() > MAX_COL_WIDTH)
+//   {
+//     std::string sub_str = str.substr(0, 9) + ".";
+//     return sub_str;
+//   }
+//   else
+//     return str;
+// }
+
+int PhoneBook::add_contact()
+{
+  std::string first_name;
+  std::string last_name;
+  std::string nick_name;
+  std::string phone_number;
+  std::string darkest_secret;
+
+  std::cout << "first_name : ";
+  std::getline(std::cin, first_name);
+  std::cout << "last_name : ";
+  std::getline(std::cin, last_name);
+  std::cout << "nick_name : ";
+  std::getline(std::cin, nick_name);
+  std::cout << "phone_number : ";
+  std::getline(std::cin, phone_number);
+  std::cout << "darkest_secret : ";
+  std::getline(std::cin, darkest_secret);
+
+  if (!first_name[0] || !last_name[0] || !nick_name[0] || !phone_number[0] || !darkest_secret[0])
+  {
+    std::cout << "Error: Invalid value found... Please try valid data" << std::endl;
+    return (-1);
   }
+  Contact newContact(first_name, last_name, nick_name, phone_number, darkest_secret);
+  contacts_[index] = newContact;
+  if (index + 1 == MAX_CONTACT_NUM)
+    index = 0;
+  else
+    index +=1;
+  return index;
 }
-
-std::string Contact::get_f_name(void) const {
-  return f_name;
-}
-
-std::string Contact::get_l_name(void) const {
-  return l_name;
-}
-
-std::string Contact::get_alias(void) const {
-  return alias;
-}
-
-std::string Contact::get_phone(void) const {
-  return phone;
-}
-
-std::string Contact::get_secret(void) const {
-  return secret;
-}
-
-Contact::Contact(void) {
-}
-
-Contact::~Contact(void) {
-}
-

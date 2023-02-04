@@ -1,24 +1,25 @@
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 int main(void)
 {
 	PhoneBook pb;
+	std::string command;
 	while (1)
 	{
-		switch (pb.cmd_type())
+		std::cout << "Jeongkpa's Awesome PhoneBook \nSELECT COMMAND || ADD | SEARCH | EXIT || : ";
+		std::getline(std::cin, command);
+
+		if (command == "ADD")
+			pb.add_contact();
+		// else if (command == "SEARCH")
+		// 	pb.search_contact();
+		else if (command == "EXIT")
 		{
-			case CMD_EXIT;
-				return 0;
-			case CMD_ADD;
-				pb.contact_add();
-				break;
-			case CMD_SEARCH;
-				pb.contact_search();
-				break;
-			default;
-				std::cout << "Wrong Command" << std::endl;
-				continue;
+			std::cout << "Bye. Have a good time :)" << std::endl;
+			break;
 		}
-	}
+		else
+			std::cout << "Error: Wrong Command." << std::endl;
+	}	
 	return 0;
 }
