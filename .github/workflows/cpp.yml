@@ -17,6 +17,8 @@ jobs:
         make
         ls
         echo "=========test ex01============"
-        cd ../ex01 
+        cd ../ex01
+        ls
         make
         ls
+        
