@@ -1,8 +1,6 @@
 #include <cctype>
 #include <cstdlib>
 #include <iostream>
-#include <vector>
-
 
 int main(int argc, char **argv) {
     int i;
@@ -21,9 +19,6 @@ int main(int argc, char **argv) {
         }
         std::cout << " ";
     }
-    for(auto i=1;i<10;i++){
-        
-    }
-    std::cout << std::endl;
+    std::cout << std::to_string(argc) << std::endl;
     return (EXIT_SUCCESS);
 }
