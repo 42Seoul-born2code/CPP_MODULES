@@ -14,6 +14,7 @@ jobs:
       run: |
         cd ex00 
         make
+        ls
         cd ../ex01 
         make
         ls
