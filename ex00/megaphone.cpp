@@ -1,5 +1,3 @@
-#include <cctype>
-#include <cstdlib>
 #include <iostream>
 
 int main(int argc, char **argv) {
@@ -19,6 +17,6 @@ int main(int argc, char **argv) {
         }
         std::cout << " ";
     }
-    std::cout << std::to_string(argc) << std::endl;
+    std::cout << std::endl;
     return (EXIT_SUCCESS);
 }
