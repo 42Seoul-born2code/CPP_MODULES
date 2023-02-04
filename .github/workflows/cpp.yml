@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: make
-    run: cd ex00 ; make
+      run: cd ex00 ; make
