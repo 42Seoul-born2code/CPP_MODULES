@@ -16,3 +16,4 @@ jobs:
         make
         cd ../ex01 
         make
+        ls
