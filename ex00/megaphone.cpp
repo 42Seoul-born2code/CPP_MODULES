@@ -1,6 +1,8 @@
 #include <cctype>
 #include <cstdlib>
 #include <iostream>
+#include <vector>
+
 
 int main(int argc, char **argv) {
     int i;
@@ -18,6 +20,9 @@ int main(int argc, char **argv) {
             words++;
         }
         std::cout << " ";
+    }
+    for(auto i=1;i<10;i++){
+        
     }
     std::cout << std::endl;
     return (EXIT_SUCCESS);
