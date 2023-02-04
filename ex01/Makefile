@@ -7,9 +7,11 @@ else
 	CFLAGS	=	--std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME	=	phoneBook
-SRC		=	PhoneBook.cpp Contact.cpp main.cpp
-OBJ		=	$(SRC:%.cpp=%.o)
+FOLDER		=	./
+NAME		=	phoneBook
+SRC_LIST	=	PhoneBook.cpp Contact.cpp main.cpp
+SRC			=	$(addprefix $(FOLDER), $(SRC_LIST))
+OBJ			=	$(SRC:%.cpp=%.o)
 
 %.o	:	%.cpp
 	@$(CC) $(CFLAGS) -c $< -o $@
