@@ -8,7 +8,7 @@ else
 endif
 
 NAME	=	PhoneBook
-SRC		=	main.cpp Contact.cpp PhoneBook.cpp
+SRC		=	Contact.cpp PhoneBook.cpp main.cpp
 OBJ		=	$(SRC:%.cpp=%.o)
 
 %.o	:	%.cpp
