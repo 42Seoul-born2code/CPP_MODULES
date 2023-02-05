@@ -98,7 +98,6 @@ void PhoneBook::search_contact()
   while(1)
   {
     std::cout << "WHAT INDEX DO YOU WANT TO SEARCH: ";
-    //TODO: str이 0~7 값이 아닌경우 에러처리
     std::cin >> search_num;
     if (std::cin.get() == EOF)
 		{

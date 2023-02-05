@@ -16,7 +16,7 @@ int main(void)
 		}
 		else if (command == "ADD")
 			pb.add_contact();
-		else if (command == "SEARCH") // TODO: SEARCH 실패 시 리턴 값 없도록
+		else if (command == "SEARCH")
 			pb.search_contact();
 		else if (command == "EXIT")
 		{
