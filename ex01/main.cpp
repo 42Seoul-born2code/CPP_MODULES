@@ -7,9 +7,14 @@ int main(void)
 	while (1)
 	{
 		std::cout << "SELECT COMMAND || ADD | SEARCH | EXIT || : ";
-		std::getline(std::cin, command);
+		std::cin >> command;
 
-		if (command == "ADD")
+		if (std::cin.get() == EOF)
+		{
+			std::cout << "EOF FOUND!! EXIT" << std::endl;
+			exit(1);
+		}
+		else if (command == "ADD")
 			pb.add_contact();
 		else if (command == "SEARCH") // TODO: SEARCH 실패 시 리턴 값 없도록
 			pb.search_contact();
@@ -19,7 +24,10 @@ int main(void)
 			break;
 		}
 		else
+		{
 			std::cout << "Error: Wrong Command." << std::endl;
-	}	
+			command =  "\0";
+		}
+	}
 	return 0;
 }

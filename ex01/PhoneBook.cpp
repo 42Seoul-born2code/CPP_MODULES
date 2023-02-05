@@ -59,28 +59,27 @@ int PhoneBook::add_contact()
   return index;
 }
 
-int PhoneBook::get_contact(int index)
+void PhoneBook::get_contact(int index)
 {
   if (index >= MAX_CONTACT_NUM || contacts_[index].get_first_name().empty())
   {
     std::cout << "Error: Invalid index number." << std::endl;
-    return (-1);
+    return ;
   }
   std::cout << std::setw(10) << "first_name : " << contacts_[index].get_first_name() << std::endl
             << std::setw(10) << "last_name : " << contacts_[index].get_last_name() << std::endl
             << std::setw(10) << "nick_name : " << contacts_[index].get_nick_name() << std::endl
             << std::setw(10) << "phone_number : " << contacts_[index].get_phone_number() << std::endl
             << std::setw(10) << "darkest_secret : " << contacts_[index].get_darkest_secret() << std::endl;
-  return (0);
 }
 
-int PhoneBook::search_contact()
+void PhoneBook::search_contact()
 {
   int search_num;
   // TODO: PhoneBook 비었을 때 예외처리
   if (count == 0)
   { std::cout << "Error : There is no contact" << std::endl;
-    return (-1);
+    return ;
   }
   int index;
 
@@ -101,14 +100,19 @@ int PhoneBook::search_contact()
     std::cout << "WHAT INDEX DO YOU WANT TO SEARCH: ";
     //TODO: str이 0~7 값이 아닌경우 에러처리
     std::cin >> search_num;
+    if (std::cin.get() == EOF)
+		{
+			std::cout << "EOF FOUND!! EXIT" << std::endl;
+			exit(1);
+		}
     if (search_num > MAX_CONTACT_NUM)
     {
-      std::cin.clear();
       std::cout << "Wrong INPUT, Try Again" << std::endl;
       continue;
     }
     index = search_num;
     break;
   }
-  return (get_contact(index));
+  get_contact(index);
+  return ;
 }
