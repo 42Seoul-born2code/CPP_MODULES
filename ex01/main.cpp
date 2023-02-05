@@ -11,8 +11,8 @@ int main(void)
 
 		if (command == "ADD")
 			pb.add_contact();
-		// else if (command == "SEARCH")
-		// 	pb.search_contact();
+		else if (command == "SEARCH")
+			pb.search_contact();
 		else if (command == "EXIT")
 		{
 			std::cout << "Bye. Have a good time :)" << std::endl;
