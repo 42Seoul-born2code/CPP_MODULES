@@ -7,7 +7,7 @@ else
 	CFLAGS	=	--std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME		=	phoneBook
+NAME		=	PhoneBook
 FOLDER		=	./
 HEADER		=	./
 SRC_LIST	=	PhoneBook.cpp Contact.cpp main.cpp
