@@ -6,7 +6,7 @@ int main(void)
 	std::string command;
 	while (1)
 	{
-		std::cout << "Jeongkpa's Awesome PhoneBook \nSELECT COMMAND || ADD | SEARCH | EXIT || : ";
+		std::cout << "SELECT COMMAND || ADD | SEARCH | EXIT || : ";
 		std::getline(std::cin, command);
 
 		if (command == "ADD")

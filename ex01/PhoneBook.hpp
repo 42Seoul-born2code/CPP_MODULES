@@ -13,6 +13,7 @@ class PhoneBook
 	private:
 		Contact contacts_[MAX_CONTACT_NUM];
 		int index;
+		int count;
 	public:
 		PhoneBook();
 		~PhoneBook();

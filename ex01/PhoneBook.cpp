@@ -2,7 +2,11 @@
 #include <iomanip>
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() {index = 0;}
+PhoneBook::PhoneBook() 
+{
+  index = 0;
+  count = 0;
+}
 PhoneBook::~PhoneBook() {}
 
 static std::string print_max_string(std::string str)
@@ -43,9 +47,15 @@ int PhoneBook::add_contact()
   Contact newContact(first_name, last_name, nick_name, phone_number, darkest_secret);
   contacts_[index] = newContact;
   if (index + 1 == MAX_CONTACT_NUM)
+  {
+    count +=1;
     index = 0;
+  }
   else
+  {
+    count +=1;
     index +=1;
+  }
   return index;
 }
 
@@ -66,6 +76,11 @@ int PhoneBook::get_contact(int index)
 
 int PhoneBook::search_contact()
 {
+  // TODO: PhoneBook 비었을 때 예외처리
+  if (count == 0)
+  { std::cout << "Error : There is no contact" << std::endl;
+    return (-1);
+  }
   std::string str;
   int index;
 
