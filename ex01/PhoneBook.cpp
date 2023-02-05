@@ -76,12 +76,12 @@ int PhoneBook::get_contact(int index)
 
 int PhoneBook::search_contact()
 {
+  int search_num;
   // TODO: PhoneBook 비었을 때 예외처리
   if (count == 0)
   { std::cout << "Error : There is no contact" << std::endl;
     return (-1);
   }
-  std::string str;
   int index;
 
   std::cout << std::setw(10) << "index" << "|"
@@ -95,10 +95,20 @@ int PhoneBook::search_contact()
               << std::setw(10) << print_max_string(contacts_[i].get_last_name()) << "|"
               << std::setw(10) << print_max_string(contacts_[i].get_nick_name()) << std::endl;
   }
-  std::cout << "WHAT INDEX DO YOU WANT TO SEARCH: ";
-  std::getline(std::cin, str);
-  //TODO: str이 0~7 값이 아닌경우 에러처리
-  index = std::atoi(str.c_str());
 
+  while(1)
+  {
+    std::cout << "WHAT INDEX DO YOU WANT TO SEARCH: ";
+    //TODO: str이 0~7 값이 아닌경우 에러처리
+    std::cin >> search_num;
+    if (search_num > MAX_CONTACT_NUM)
+    {
+      std::cin.clear();
+      std::cout << "Wrong INPUT, Try Again" << std::endl;
+      continue;
+    }
+    index = search_num;
+    break;
+  }
   return (get_contact(index));
 }
