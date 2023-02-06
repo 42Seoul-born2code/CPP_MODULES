@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstdio>
 #include "Contact.hpp"
 
 #define MAX_CONTACT_NUM 8
