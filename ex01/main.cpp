@@ -1,7 +1,13 @@
 #include "./PhoneBook.hpp"
 
+void check_leaks()
+{
+	system("leaks PhoneBook | grep leaks");
+}
+
 int main(void)
 {
+	atexit(check_leaks);
 	PhoneBook pb;
 	std::string command;
 	while (1)
