@@ -6,7 +6,7 @@ int main(void)
 	std::string command;
 	while (1)
 	{
-		std::cout << "SELECT COMMAND || ADD | SEARCH | EXIT || : ";
+		std::cout << "Please write command without whitespace \"ADD\" or \"SEARCH\" or \"EXIT\" : ";
 		std::cin >> command;
 
 		if (std::cin.get() == EOF)
