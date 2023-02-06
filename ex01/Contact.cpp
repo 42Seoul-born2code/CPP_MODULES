@@ -18,8 +18,8 @@ Contact::Contact(	const std::string &first_name,
 
 Contact::~Contact() {}
 
-const std::string &Contact::get_first_name() const { return first_name_;}
-const std::string &Contact::get_last_name() const { return last_name_;}
-const std::string &Contact::get_nick_name() const { return nick_name_;}
-const std::string &Contact::get_phone_number() const { return phone_number_;}
-const std::string &Contact::get_darkest_secret() const { return darkest_secret_;}
+const std::string &Contact::get_first_name() { return first_name_;}
+const std::string &Contact::get_last_name() { return last_name_;}
+const std::string &Contact::get_nick_name() { return nick_name_;}
+const std::string &Contact::get_phone_number() { return phone_number_;}
+const std::string &Contact::get_darkest_secret() { return darkest_secret_;}

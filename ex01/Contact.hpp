@@ -20,11 +20,11 @@ class Contact
 				const std::string &phone_number,
 				const std::string &darkest_secret);
 		~Contact();
-		const std::string &get_first_name() const;
-		const std::string &get_last_name() const;
-		const std::string &get_nick_name() const;
-		const std::string &get_phone_number() const;
-		const std::string &get_darkest_secret() const;
+		const std::string &get_first_name();
+		const std::string &get_last_name();
+		const std::string &get_nick_name();
+		const std::string &get_phone_number();
+		const std::string &get_darkest_secret();
 };
 
 #endif
