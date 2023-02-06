@@ -18,7 +18,8 @@ int main(int argc, char **argv) {
             std::cout << (char)std::toupper(*words);
             words++;
         }
-        std::cout << " ";
+        if (i != argc - 1)
+            std::cout << " ";
         i += 1;
     }
     std::cout << std::endl;
