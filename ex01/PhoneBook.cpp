@@ -6,6 +6,7 @@ PhoneBook::PhoneBook()
 {
   index = 0;
   count = 0;
+  this->test = 0;
 }
 PhoneBook::~PhoneBook() {}
 
