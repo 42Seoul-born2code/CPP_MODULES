@@ -1,10 +1,10 @@
 	CC	=	c++
 ifdef DEBUG
-	CFLAGS	=	--std=c++98 -g3 -fsanitize=address
+	CFLAGS	=	-std=c++98 -g3 -fsanitize=address
 else ifdef LEAKS
-	CFLAGS	=	--std=c++98 -g
+	CFLAGS	=	-std=c++98 -g
 else
-	CFLAGS	=	--std=c++98 -Wall -Wextra -Werror
+	CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 endif
 
 NAME	=	megaphone
@@ -12,30 +12,30 @@ SRC		=	megaphone.cpp
 OBJ		=	$(SRC:%.cpp=%.o)
 
 %.o	:	%.cpp
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME)	:	$(OBJ)
-	@$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 .PHONY: all
 all: $(NAME)
 
 .PHONY: clean
 clean:
-	@rm -f $(OBJ)
+	rm -f $(OBJ)
 
 .PHONY: fclean
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 .PHONY: re
 re: fclean
-	@make all
+	make all
 
 .PHONY: debug
 debug:
-	@make DEBUG=1 all
+	make DEBUG=1 all
 
 .PHONY: leaks
 leaks:
-	@make LEAKS=1 all
+	make LEAKS=1 all
