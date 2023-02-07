@@ -13,9 +13,10 @@ int main(void)
 	while (1)
 	{
 		std::cout << "Please write command without whitespace \"ADD\" or \"SEARCH\" or \"EXIT\" : ";
-		std::cin >> command;
+		// TODO: cin말고 getline쓰기 개행처리 때문에. 
+		std::getline(std::cin, command);
 
-		if (std::cin.get() == EOF)
+		if (std::cin.eof())
 		{
 			std::cout << "EOF FOUND!! EXIT" << std::endl;
 			exit(1);
