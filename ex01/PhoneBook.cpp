@@ -116,10 +116,9 @@ int PhoneBook::add_contact()
 }
 
 /*
-std::setw(n)은 오른쪽으로 정렬하여 n의 크기만큼 출력 (n = 10)
 empty() 함수는 문자열이 비어있는지 확인하는 함수.
 index가 음수이거나, index가 8이상인경우, contacts_[index]의 get_first_name한 문자열이 만약 비어있다면 Invalid 예외처리
-
+get_contact 함수는 index값의 contact를 detail하게 출력.
 */
 void PhoneBook::get_contact(int index)
 {
@@ -134,6 +133,14 @@ void PhoneBook::get_contact(int index)
             << "phone_number : " << contacts_[index].get_phone_number() << std::endl
             << "darkest_secret : " << contacts_[index].get_darkest_secret() << std::endl;
 }
+
+/*
+std::setw(n)은 오른쪽으로 정렬하여 n의 크기만큼 출력 (n = 10), 자리 남는 왼쪽 칸들에는 빈칸 출력
+SEARCH 명령어 입력시, search_contact 실행
+이미 저장된 contact를 setw(n)으로 출력해서 보여줌
+그 뒤에, getline으로 str을 받고, string_to_int 함수를 통해서 string을 int로 바꾼다.
+eof, 잘못된 str 예외처리 진행 후, 유효한 인자일 경우에 get_contact를 통해 detail한 contact 출력
+*/
 
 void PhoneBook::search_contact()
 {
