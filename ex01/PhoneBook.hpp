@@ -22,6 +22,5 @@ class PhoneBook
 		int 	add_contact(void);
 		void	search_contact(void);
 		void 	get_contact(int index);
-		int		test;
 };
 #endif

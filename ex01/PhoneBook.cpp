@@ -6,10 +6,34 @@ PhoneBook::PhoneBook()
 {
   index = 0;
   count = 0;
-  this->test = 0;
 }
 PhoneBook::~PhoneBook() {}
 
+/*
+getline으로 받은 search_str을 int값으로 변경하여 반환
+문자열 중에 숫자가 아닌 다른 문자가 포함돼있다면 -1 반환
+overflow인데, 인덱스가 음수일 수는 없으므로 양수로 변환하여 반환
+*/
+static int string_to_int(std::string search_str)
+{
+  int temp;
+
+  temp = 0;
+  for (unsigned long i = 0; i <= search_str.size() - 1; i++)
+  {
+    if (search_str[i] < '0' || search_str[i] > '9')
+      return (-1);
+    else
+      temp = temp * 10 + search_str[i] - '0';
+  }
+  if (temp < 0)
+    temp = -temp;
+  return (temp);
+}
+
+/*
+
+*/
 static std::string print_max_string(std::string str)
 {
   if (str.length() > MAX_COL_WIDTH)
@@ -62,7 +86,7 @@ int PhoneBook::add_contact()
 
 void PhoneBook::get_contact(int index)
 {
-  if (index >= MAX_CONTACT_NUM || contacts_[index].get_first_name().empty())
+  if (index < 0 || index >= MAX_CONTACT_NUM || contacts_[index].get_first_name().empty())
   {
     std::cout << "Error: Invalid index number." << std::endl;
     return ;
@@ -76,8 +100,6 @@ void PhoneBook::get_contact(int index)
 
 void PhoneBook::search_contact()
 {
-  int search_num;
-  // TODO: PhoneBook 비었을 때 예외처리
   if (count == 0)
   { std::cout << "Error : There is no contact" << std::endl;
     return ;
@@ -96,15 +118,23 @@ void PhoneBook::search_contact()
               << std::setw(10) << print_max_string(contacts_[i].get_nick_name()) << std::endl;
   }
 
+  std::string search_str;
+  int search_num;
   while(1)
   {
     std::cout << "WHAT INDEX DO YOU WANT TO SEARCH: ";
-    std::cin >> search_num;
-    if (std::cin.get() == EOF)
+		std::getline(std::cin, search_str);
+    if (std::cin.eof())
 		{
 			std::cout << "EOF FOUND!! EXIT" << std::endl;
 			exit(1);
 		}
+    search_num = string_to_int(search_str);
+    if (search_num == -1)
+    {
+			std::cout << "Wrong INPUT, Try Again" << std::endl;
+			continue;
+    }
     if (search_num > MAX_CONTACT_NUM)
     {
       std::cout << "Wrong INPUT, Try Again" << std::endl;
