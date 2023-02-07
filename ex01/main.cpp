@@ -14,13 +14,8 @@ int main(void)
 	{
 		std::cout << "Please write command without whitespace \"ADD\" or \"SEARCH\" or \"EXIT\" : ";
 		std::getline(std::cin, command);
-
-		if (std::cin.eof())
-		{
-			std::cout << "EOF FOUND!! EXIT" << std::endl;
-			exit(1);
-		}
-		else if (command == "ADD")
+		pb.check_eof();
+		if (command == "ADD")
 			pb.add_contact();
 		else if (command == "SEARCH")
 			pb.search_contact();
