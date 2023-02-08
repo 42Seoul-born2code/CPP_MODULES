@@ -1,0 +1,23 @@
+name: C/C++ CI
+
+on:
+  [ "push" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: make
+      run: |
+        echo "=========test ex00============"
+        cd ex00 
+        make
+        ls
+        echo "=========test ex01============"
+        cd ../ex01
+        make
+        ls
+        
