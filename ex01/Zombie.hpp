@@ -12,11 +12,11 @@ class Zombie
 		Zombie(void);
 		Zombie(const std::string &name);
 		~Zombie(void);
-		void	SetName(std::string name);
-		void	Announce(void);
+		void	setName(std::string name);
+		void	announce(void);
 };
 
-Zombie* ZombieHorde(int N, std::string name);
+Zombie* zombieHorde(int N, std::string name);
 
 
 #endif

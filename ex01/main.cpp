@@ -2,12 +2,13 @@
 
 int main(void)
 {
-	Zombie *zb;
+	Zombie *zombies;
 
-	zb = ombieHorde(5, "Horde~~");
+	zombies = zombieHorde(5, "Horde");
 	for (int i = 0; i < 5; i++)
 	{
-		zb[i].Announce();
+		zombies[i].announce();
 	}
-	delete[] zb;
+	delete[] zombies;
+	return 0;
 }

@@ -7,10 +7,10 @@ else
 	CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME	=	zombie
+NAME	=	Zombie
 SRC		=	Zombie.cpp			\
 			main.cpp			\
-			ZombieHorde.cpp
+			zombieHorde.cpp
 OBJ		=	$(SRC:%.cpp=%.o)
 
 %.o	:	%.cpp
