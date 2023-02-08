@@ -14,10 +14,17 @@ jobs:
       run: |
         echo "=========test ex00============"
         cd ex00 
-        make
+        make re
         ls
         echo "=========test ex01============"
         cd ../ex01
-        make
+        make re
         ls
-        
+        echo "=========test ex02============"
+        cd ../ex02
+        make re
+        ls
+        echo "=========test ex03============"
+        cd ../ex03
+        make re
+        ls
