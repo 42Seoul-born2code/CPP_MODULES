@@ -17,13 +17,13 @@ SedManager::~SedManager() {}
 */
 int SedManager::check_valid_file(std::string infile, std::string outfile)
 {
-	infile_.open(infile, std::ifstream::in);
+	infile_.open(infile);
 	if (!infile_.is_open())
 	{
 		std::cout << "Error: " << "Invalid infile." << std::endl;
 		return (FAIL);
 	}
-	outfile_.open(outfile, std::ofstream::out);
+	outfile_.open(outfile);
 	if (!outfile_.is_open())
 	{
 		std::cout << "Error: " << "Invalid outfile." << std::endl;
