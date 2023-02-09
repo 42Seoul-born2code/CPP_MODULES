@@ -28,3 +28,7 @@ jobs:
         cd ../ex03
         make re
         ls
+        echo "=========test ex04============"
+        cd ../ex04
+        make re
+        ls
