@@ -8,8 +8,8 @@ else
 endif
 
 NAME	=	Zombie
-SRC		=	Zombie.cpp			\
-			main.cpp			\
+SRC		=	main.cpp			\
+			Zombie.cpp			\
 			zombieHorde.cpp
 OBJ		=	$(SRC:%.cpp=%.o)
 
