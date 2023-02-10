@@ -7,7 +7,7 @@ else
 	CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME	=	number
+NAME	=	outfile
 SRC		=	main.cpp		\
 			Fixed.cpp
 
