@@ -3,16 +3,17 @@
 
 #include <iostream>
 
-class Fixed {
+class Fixed
+{
  private:
-  int num_;
+  int fixedPoint_;
   static const int fBits_ = 8;
 
  public:
 	Fixed(void);
-	Fixed(const Fixed &copy);
+	Fixed(const Fixed &fixed);
 	~Fixed();
-	Fixed &operator=(const Fixed &src);
+	Fixed &operator=(const Fixed &fixed);
 	int 	getRawBits(void) const;
 	void 	setRawBits(int const raw);
 };
