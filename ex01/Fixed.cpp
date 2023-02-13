@@ -12,6 +12,11 @@ Fixed::Fixed(const int num)
 	this->fixedPoint = (num << this->fBits_);
 }
 
+/*
+	float에 바로 비트 연산을 할 수 없기 때문에 1<< 8 을 한 값을 곱해준다.
+	roundf 함수는 x값에 가장 가까운 정수를 나타내는 부동 소수점 값을 반환한다.
+*/
+
 Fixed::Fixed(const float num)
 {
 	std::cout << "Float constructor called" << std::endl;

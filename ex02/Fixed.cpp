@@ -31,6 +31,7 @@ Fixed&	Fixed::operator= (const Fixed &fixed)
 	return (*this);
 }
 
+// 전위 증가 오버로딩
 Fixed&	Fixed::operator++ ()
 {
 	this->fixedPoint++;
@@ -38,6 +39,7 @@ Fixed&	Fixed::operator++ ()
 	return (*this);
 }
 
+// 후위 증가 오버로딩
 Fixed	Fixed::operator++ (int)
 {
 	Fixed	newFixed(*this);
@@ -116,6 +118,8 @@ Fixed	Fixed::operator/(const Fixed &fixed)
 	return (newFixed);
 }
 
+// << 연산자 오버로딩 
+// cout << Fixed 하면 toFloat 후 출력
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 {
 	os << fixed.toFloat();
