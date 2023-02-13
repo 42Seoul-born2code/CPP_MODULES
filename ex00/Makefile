@@ -7,9 +7,9 @@ else
 	CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME	=	outfile
+NAME	=	ClapTrap
 SRC		=	main.cpp		\
-			Fixed.cpp
+			ClapTrap.cpp
 
 OBJ		=	$(SRC:%.cpp=%.o)
 
