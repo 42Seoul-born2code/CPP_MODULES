@@ -15,6 +15,7 @@ SedManager::~SedManager() {}
 	open 함수에서 2번째 옵션으로 std::ofstream::out을 넣어준 이유는 쓰기위한 파일을 열기 위해서임.
 
 */
+
 int SedManager::check_valid_file(std::string infile, std::string outfile)
 {
 	infile_.open(infile);
@@ -38,7 +39,7 @@ int SedManager::check_valid_file(std::string infile, std::string outfile)
 	size_type : int 말고 이 형식을 사용하는 이유는 문자 개수가 얼마나 커지든 간에 그 값을 저장할 수 있도록 하기 위해서 (size_t)
 
 	get_line 함수인자에 infile_를 넣어 infile내용을 buf_에 저장한다.
-	pos : 검색
+	pos : 검색해서 만약 find 했다면 find했을 때의 위치의 정수 값을 반환한다.
 
 	find : 주어진 pattern이 buf_에 존재하는지 확인해본다. 찾으면 해당 문자열이 위치한 주소값을 반환, 못찾으면 npos 반환
 	만약 맨 처음 찾았다면 erase와 insert 함수를 통해서 지우고, 대체한다.
@@ -53,6 +54,7 @@ int SedManager::check_valid_file(std::string infile, std::string outfile)
 	bad : bad 비트가 설정됐는지 확인한다.
 	bad 비트는 만약 읽기 또는 쓰기 중에 오류가 발생하면 true를 뱉는다.
 */
+
 int SedManager::replace_str(std::string pattern, std::string replacement)
 {
 	std::string::size_type pos = -1;

@@ -1,5 +1,10 @@
 #include "Harl.hpp"
 
+/*
+	함수 포인터 사용, 심지어 함수 포인터가 배열임
+	배열 4개짜리 선언 -> 그 안에 하나씩 클래서 멤버 함수의 주소를 넣음
+	this는 클래스를 가르키는 포인터 (주소) -> * (배열 안에 멤버 함수 주소) () 실행
+*/
 void Harl::complain(std::string name)
 {
 	std::string str[4];

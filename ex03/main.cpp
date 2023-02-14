@@ -2,6 +2,10 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
+/*
+	무기가 없는 것을 용인하면 예외처리를 해주어야 하는 단점이 존재한다.
+*/
+
 int main (void)
 {
 	{	

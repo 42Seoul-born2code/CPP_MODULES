@@ -15,7 +15,7 @@ void HumanB::attack()
 		std::cout << name_ << " does not have weapon..." << std::endl;
 		return ;
 	}
-	std::cout << name_ << " attacks with their" << (*weapon_).getType() << std::endl;
+	std::cout << name_ << " attacks with their " << (*weapon_).getType() << std::endl;
 }
 
 void HumanB::setWeapon(Weapon &weapon)
