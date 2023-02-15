@@ -1,17 +1,55 @@
 #include <iostream>
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-int main( void ) {
-	Fixed a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
+int main(void) {
+  ScavTrap st1("ST1");
+  ClapTrap ct1("CT1");
+  FragTrap ft1("FT1");
+  ClapTrap ct2;
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+  std::cout << ct2.getName() << std::endl;
 
-	std::cout << b << std::endl;
-	std::cout << Fixed::max(a, b) << std::endl;
-	return 0;
+  st1.printStatus();
+  ct1.printStatus();
+
+  st1.setDamage(5);
+  st1.attack(ct1.getName());
+  ct1.takeDamage(st1.getDamage());
+  st1.printStatus();
+  ct1.printStatus();
+
+  std::cout << "----------------------------------------" << std::endl;
+
+  ct1.beRepaired(1);
+  ct1.printStatus();
+
+  std::cout << "----------------------------------------" << std::endl;
+
+  st1.setDamage(150);
+  st1.attack(ct1.getName());
+  ct1.takeDamage(st1.getDamage());
+  st1.printStatus();
+  ct1.printStatus();
+
+  ct1.beRepaired(1);
+  ct1.printStatus();
+
+  st1.guardGate();
+  ct1.attack(st1.getName());
+
+  std::cout << "----------------------------------------" << std::endl;
+
+  ft1.printStatus();
+  ft1.attack(st1.getName());
+  st1.takeDamage(ft1.getDamage());
+  st1.printStatus();
+  ft1.printStatus();
+  st1.beRepaired(10);
+  st1.printStatus();
+
+  ft1.highFivesGuys();
+
+  return 0;
 }

@@ -3,16 +3,16 @@
 #include "ScavTrap.hpp"
 
 int main(void) {
-  ScavTrap ct1("ct1");
-  ClapTrap ct2("ct2");
+  ScavTrap st1("ST1");
+  ClapTrap ct2("CT1");
 
-  ct1.printStatus();
+  st1.printStatus();
   ct2.printStatus();
 
-  ct1.setDamage(5);
-  ct1.attack(ct2.getName());
-  ct2.takeDamage(ct1.getDamage());
-  ct1.printStatus();
+  st1.setDamage(5);
+  st1.attack(ct2.getName());
+  ct2.takeDamage(st1.getDamage());
+  st1.printStatus();
   ct2.printStatus();
 
   ct2.beRepaired(1);
@@ -20,17 +20,17 @@ int main(void) {
 
   std::cout << "----------------------------------------" << std::endl;
 
-  ct1.setDamage(150);
-  ct1.attack(ct2.getName());
-  ct2.takeDamage(ct1.getDamage());
-  ct1.printStatus();
+  st1.setDamage(150);
+  st1.attack(ct2.getName());
+  ct2.takeDamage(st1.getDamage());
+  st1.printStatus();
   ct2.printStatus();
 
   ct2.beRepaired(1);
   ct2.printStatus();
 
-  ct1.guardGate();
-  ct2.attack(ct1.getName());
+  st1.guardGate();
+  ct2.attack(st1.getName());
 
   return 0;
 }
