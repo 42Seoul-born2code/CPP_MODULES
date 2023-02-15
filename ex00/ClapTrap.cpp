@@ -2,6 +2,7 @@
 
 ClapTrap::ClapTrap()
 {
+	this->name_ = "Unknown";
 	std::cout << "ClapTrap is created" << std::endl;
 	this->hp_ = 10;
 	this->ep_ = 10;
