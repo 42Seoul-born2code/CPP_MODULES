@@ -7,9 +7,6 @@ int main(void) {
   ScavTrap st1("ST1");
   ClapTrap ct1("CT1");
   FragTrap ft1("FT1");
-  ClapTrap ct2;
-
-  std::cout << ct2.getName() << std::endl;
 
   st1.printStatus();
   ct1.printStatus();
