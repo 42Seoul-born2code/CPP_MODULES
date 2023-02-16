@@ -6,6 +6,11 @@
 #include "WrongDog.hpp"
 #include "WrongCat.hpp"
 
+/*
+	Overriding 부분을 짚자면, 기반 클래스에서 재정의 하려는 함수는 virtual로 명시해야 하고, 파생 클래스의 소멸자는 virtual로 명시해야 한다.
+
+*/
+
 int main(void) {
   std::cout << "===========Correct Way===========" << std::endl;
   const Animal *meta = new Animal();
