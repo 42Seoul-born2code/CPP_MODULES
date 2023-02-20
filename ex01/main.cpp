@@ -1,5 +1,9 @@
 #include "Fixed.hpp"
 
+/*
+f를 붙이는 이유는 지금 저장하는 데이터가  float 타입이라는것을 컴퓨터에게 알리기 위한 용도로 사용하는 것입니다.
+*/
+
 int main( void )
 {
 	Fixed a;
