@@ -15,13 +15,13 @@ void Character::equip(AMateria* am) {
     if (!_am[i]) {
       _am[i] = am;
       std::cout << "[ " << std::setw(W_SIZE)
-        << "equip Function on Character" << " ] by "
+        << "equip Function on Character" << "] by "
         << _name << std::endl;
       return;
     }
   }
   std::cout << "[ " << std::setw(W_SIZE)
-    << "equip Function on Character" << " ] by "
+    << "equip Function on Character" << "] by "
     << _name << " Failed (FULL)" << std::endl;
 }
 
@@ -29,12 +29,12 @@ void Character::unequip(int idx) {
   if (idx >= 0 && idx < AM_SIZE && _am[idx]) {
     _am[idx] = NULL;
     std::cout << "[ " << std::setw(W_SIZE)
-      << "unequip Function on Character" << " ] by "
+      << "unequip Function on Character" << "] by "
       << _name << std::endl;
     return;
   }
   std::cout << "[ " << std::setw(W_SIZE)
-    << "unequip Function on Character" << " ] by "
+    << "unequip Function on Character" << "] by "
     << _name << " Failed (EMPTY)" << std::endl;
 }
 
@@ -43,7 +43,7 @@ void Character::use(int idx, const ICharacter& ic) {
     _am[idx]->use(ic);
   } else {
     std::cout << "[ " << std::setw(W_SIZE)
-      << "use Function on Character" << " ] by "
+      << "use Function on Character" << "] by "
       << _name << " Failed (Empty or Wrong Access)" << std::endl;
   }
 }
@@ -64,7 +64,7 @@ Character& Character::operator=(const Character& c) {
     }
   }
   std::cout << "[ " << std::setw(W_SIZE)
-    << "Assignation on Character" << " ]" << std::endl;
+    << "Assignation on Character" << "]" << std::endl;
   return *this;
 }
 
@@ -73,7 +73,7 @@ Character::Character(void)
   for (int i = 0 ; i < AM_SIZE ; ++i)
     _am[i] = NULL;
   std::cout << "[ " << std::setw(W_SIZE)
-    << "Default Constructor on Character" << " ]" << std::endl;
+    << "Default Constructor on Character" << "]" << std::endl;
 }
 
 Character::Character(const std::string& name)
@@ -81,7 +81,7 @@ Character::Character(const std::string& name)
   for (int i = 0 ; i < AM_SIZE ; ++i)
     _am[i] = NULL;
   std::cout << "[ " << std::setw(W_SIZE)
-    << "Named Constructor on Character" << " ]" << std::endl;
+    << "Named Constructor on Character" << "]" << std::endl;
 }
 
 Character::Character(const Character& c)
@@ -98,7 +98,7 @@ Character::Character(const Character& c)
       _am[i] = temp->clone();
   }
   std::cout << "[ " << std::setw(W_SIZE)
-    << "Copy Constructor on Character" << " ]" << std::endl;
+    << "Copy Constructor on Character" << "]" << std::endl;
 }
 
 Character::~Character(void) {
@@ -109,5 +109,5 @@ Character::~Character(void) {
     }
   }
   std::cout << "[ " << std::setw(W_SIZE)
-    << "Destructor on Character" << " ]" << std::endl;
+    << "Destructor on Character" << "]" << std::endl;
 }

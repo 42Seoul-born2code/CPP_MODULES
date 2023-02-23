@@ -11,13 +11,13 @@ void MateriaSource::learnMateria(AMateria* am) {
     if (!_am[i]) {
       _am[i] = am;
       std::cout << "[ " << std::setw(W_SIZE)
-        << "learnMateria Function on MateriaSource" << " ] "
+        << "learnMateria Function on MateriaSource" << "] "
         << am->getType() << std::endl;
       return;
     }
   }
   std::cout << "[ " << std::setw(W_SIZE)
-    << "learnMateria Function on MateriaSource" << " ] "
+    << "learnMateria Function on MateriaSource" << "] "
     << am->getType() << " Failed (FULL)" << std::endl;
 }
 
@@ -25,13 +25,13 @@ AMateria* MateriaSource::createMateria(const std::string& type) {
   for (int i = 0 ; i < AM_SIZE ; ++i) {
     if (_am[i] && _am[i]->getType() == type) {
       std::cout << "[ " << std::setw(W_SIZE)
-        << "createMateria Function on MateriaSource" << " ] "
+        << "createMateria Function on MateriaSource" << "] "
         << type << std::endl;
       return _am[i]->clone();
     }
   }
   std::cout << "[ " << std::setw(W_SIZE)
-    << "createMateria Function on MateriaSource" << " ] "
+    << "createMateria Function on MateriaSource" << "] "
     << type << " Failed (Not Found)" << std::endl;
   return NULL;
 }
@@ -51,7 +51,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& ms) {
     }
   }
   std::cout << "[ " << std::setw(W_SIZE)
-    << "Assignation on MateriaSource" << " ]" << std::endl;
+    << "Assignation on MateriaSource" << "]" << std::endl;
   return *this;
 }
 
@@ -59,7 +59,7 @@ MateriaSource::MateriaSource(void) {
   for (int i = 0 ; i < AM_SIZE ; ++i)
     _am[i] = NULL;
   std::cout << "[ " << std::setw(W_SIZE)
-    << "Default Constructor on MateriaSource" << " ]" << std::endl;
+    << "Default Constructor on MateriaSource" << "]" << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& ms) {
@@ -75,7 +75,7 @@ MateriaSource::MateriaSource(const MateriaSource& ms) {
       _am[i] = temp->clone();
   }
 std::cout << "[ " << std::setw(W_SIZE)
-  << "Copy Constructor on MateriaSource" << " ]" << std::endl;
+  << "Copy Constructor on MateriaSource" << "]" << std::endl;
 }
 
 MateriaSource::~MateriaSource(void) {
@@ -86,5 +86,5 @@ MateriaSource::~MateriaSource(void) {
     }
   }
   std::cout << "[ " << std::setw(W_SIZE)
-    << "Destructor on MateriaSource" << " ]" << std::endl;
+    << "Destructor on MateriaSource" << "]" << std::endl;
 }
