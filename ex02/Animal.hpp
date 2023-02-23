@@ -11,7 +11,6 @@
   
   makeSound 메서드를 가지고 있는 클래스는 인터페이스가 된다.
 
-
 */
 
 #include <string>
