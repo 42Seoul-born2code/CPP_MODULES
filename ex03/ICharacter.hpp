@@ -1,17 +1,20 @@
 #ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#define ICHARACTER_HPP
 
-#include<iostream>
-#include"AMateria.hpp"
+#include <string>
+#include <iomanip>
+#include <iostream>
 
-class ICharacter
-{
-public:
-		virtual ~ICharacter() {}
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
+#include "AMateria.hpp"
+
+class ICharacter {
+ public:
+  virtual const std::string& getName(void) const = 0;
+  virtual void equip(AMateria* am) = 0;
+  virtual void unequip(int idx) = 0;
+  virtual void use(int idx, const ICharacter& ic) = 0;
+
+  virtual ~ICharacter(void) {}
 };
 
-#endif
+#endif 
