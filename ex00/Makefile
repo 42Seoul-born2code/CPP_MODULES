@@ -9,12 +9,7 @@ endif
 
 NAME	=	outfile
 SRC		=	main.cpp		\
-			Animal.cpp		\
-			Dog.cpp			\
-			Cat.cpp			\
-			WrongAnimal.cpp	\
-			WrongDog.cpp	\
-			WrongCat.cpp
+			Bureaucrat.cpp
 			
 OBJ		=	$(SRC:%.cpp=%.o)
 
