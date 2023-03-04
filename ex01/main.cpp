@@ -1,65 +1,42 @@
 #include <iostream>
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-
-/*
-  Brain 클래스에서 복사대입연산자를 따로 추가해주지 않으면 깊은복사를 하지 못한다.
-*/
+#include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 int main(void) {
-  {
-    Animal *animals[10];
+  try {
+    std::cout << "==============Bureaucrat Constructor Check==============" << std::endl;
+    Bureaucrat kevin("Kevin", 1);
+    Bureaucrat alex("Alex", 50);
+    Bureaucrat jenny("Jenny", 130);
 
-    std::cout  << "===========Create 10 Animals===========" << std::endl;
-    for (int i = 0; i < 5; i++) animals[i] = new Dog();
-    for (int i = 5; i < 10; i++) animals[i] = new Cat();
+    std::cout << "==============Form Constructor Check==============" << std::endl;
+    Form form1("importantForm", 2, 1);
+    Form form2;
+    Form form3(form1);
+    Form form4;
+    form4 = form2;
 
-    std::cout  << "===========makeSound()===========" << std::endl;
-    for (int i = 0; i < 5; i++) animals[i]->makeSound();
-    for (int i = 5; i < 10; i++) animals[i]->makeSound();
+    std::cout << form1 << std::endl;
+    std::cout << form2 << std::endl;
+    std::cout << form3 << std::endl;
+    std::cout << form4 << std::endl;
 
-    std::cout  << "===========Delete 10 Animals===========" << std::endl;
-    for (int i = 0; i < 5; i++) delete animals[i];
-    for (int i = 5; i < 10; i++) delete animals[i];
+    std::cout << "==============Form Method Check==============" << std::endl;
+    std::cout << form1 << std::endl;
+    kevin.signForm(form1);
+    std::cout << form1 << std::endl;
+    std::cout << form3 << std::endl;
 
-    std::cout  << "===========Check DeepCopy : Copy Constructor===========" << std::endl;
-    Dog src;
-    Dog dst(src);
+    std::cout << "==============Form Exception Check==============" << std::endl;
+    alex.signForm(form3); // GradeTooLowException
+    jenny.signForm(form1); // SignedAlreadyException
+    jenny.signForm(form2);
+    alex.signForm(form4);
 
-    std::cout << "Address of src brain: " << src.getBrain() << std::endl;
-    std::cout << "Address of dst brain: " << dst.getBrain() << std::endl;
-
-    std::cout << "Address of src brain->ideas: " << src.getBrain()->getIdeas() << std::endl;
-    std::cout << "Address of dst brain->ideas: " << dst.getBrain()->getIdeas() << std::endl;
-
-    src.getBrain()->setIdea(0, "src");
-    dst.getBrain()->setIdea(0, "dst");
-
-    std::cout << "src ideas[0]: " << src.getBrain()->getIdeas()[0] << std::endl;
-    std::cout << "dst ideas[0]: " << dst.getBrain()->getIdeas()[0] << std::endl;
-
-    std::cout  << "===========Check DeepCopy : Assignment Operator===========" << std::endl;
-    Cat cat;
-    Cat copyCat = cat;
-
-    std::cout << "Address of src brain: " << cat.getBrain() << std::endl;
-    std::cout << "Address of dst brain: " << copyCat.getBrain() << std::endl;
-
-    std::cout << "Address of src brain->ideas: " << cat.getBrain()->getIdeas() << std::endl;
-    std::cout << "Address of dst brain->ideas: " << copyCat.getBrain()->getIdeas() << std::endl;
-
-    cat.getBrain()->setIdea(0, "cat");
-    copyCat.getBrain()->setIdea(0, "copyCat");
-
-    std::cout << "cat ideas[0]: " << cat.getBrain()->getIdeas()[0] << std::endl;
-    std::cout << "copyCat ideas[0]: " << copyCat.getBrain()->getIdeas()[0] << std::endl;
-
-    std::cout  << "===========Destructor called===========" << std::endl;
+    std::cout << "==============Destructor Check==============" << std::endl;
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
   }
-
-  std::cout  << "===========Leaks check===========" << std::endl;
-  system("leaks outfile");
 
   return 0;
 }
