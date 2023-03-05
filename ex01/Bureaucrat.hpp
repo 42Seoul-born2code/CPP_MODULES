@@ -1,6 +1,12 @@
 #ifndef BUREAUCRAT_HPP_
 #define BUREAUCRAT_HPP_
 
+/*
+signForm 함수 때문에 class Form 전방 선언 사용해야함
+
+앞선 과제 + signForm() 함수 추가됨.
+*/
+
 #include <string>
 
 class Form;
