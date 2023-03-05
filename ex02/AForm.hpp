@@ -5,7 +5,7 @@
 
 class Bureaucrat;
 class AForm {
- private:
+ protected:
   const std::string name_;
   bool isSigned_;
   const int signGrade_;
@@ -36,7 +36,7 @@ class AForm {
     virtual const char *what() const throw();
   };
 
-  class AlreadySignedException : public std::exception {
+  class SignedAlreadyException : public std::exception {
    public:
     virtual const char *what() const throw();
   };

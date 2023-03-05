@@ -1,17 +1,17 @@
 #include <iostream>
 #include <fstream>
 #include "ShrubberyCreationForm.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
-// Constructor & Destructor
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyCreationForm", 145, 137) {
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) {
   std::cout << "Default Constructor of ShrubberyCreationForm called" << std::endl;
 }
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : Form("ShrubberyCreationForm", 145, 137) {
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyCreationForm", 145, 137) {
   this->target_ = target;
   std::cout << "Constructor of ShrubberyCreationForm(target) called" << std::endl;
 }
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : Form("ShrubberyCreationForm",
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm("ShrubberyCreationForm",
                                                                                        145,
                                                                                        137) {
   this->target_ = copy.target_;
@@ -21,15 +21,14 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
   std::cout << "Destructor of ShrubberyCreationForm called" << std::endl;
 }
 
-// Operator Overload
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src) {
   this->target_ = src.target_;
   return (*this);
 }
 
-// Method
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
-  AForm::execute(executor);
+  if (!this->isSigned_) throw NotSignedException();
+  if (executor.getGrade() > executeGrade_) throw GradeTooLowException();
   std::ofstream file(target_ + "_shrubbery");
   file << "          &&& &&  & &&\n"
           "      && &\\/&\\|& ()|/ @, &&\n"
