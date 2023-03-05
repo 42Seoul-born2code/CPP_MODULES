@@ -5,9 +5,9 @@
 int main(void) {
   try {
     std::cout << "==============Bureaucrat Constructor Check==============" << std::endl;
-    Bureaucrat kevin("Kevin", 1);
-    Bureaucrat alex("Alex", 50);
-    Bureaucrat jenny("Jenny", 130);
+    Bureaucrat jeongkpa("jeongkpa", 1);
+    Bureaucrat polar("polar", 50);
+    Bureaucrat dalle("dalle", 130);
 
     std::cout << "==============Form Constructor Check==============" << std::endl;
     Form form1("importantForm", 2, 1);
@@ -23,15 +23,15 @@ int main(void) {
 
     std::cout << "==============Form Method Check==============" << std::endl;
     std::cout << form1 << std::endl;
-    kevin.signForm(form1);
+    jeongkpa.signForm(form1);
     std::cout << form1 << std::endl;
     std::cout << form3 << std::endl;
 
     std::cout << "==============Form Exception Check==============" << std::endl;
-    alex.signForm(form3); // GradeTooLowException
-    jenny.signForm(form1); // SignedAlreadyException
-    jenny.signForm(form2);
-    alex.signForm(form4);
+    polar.signForm(form3); // GradeTooLowException
+    dalle.signForm(form1); // SignedAlreadyException
+    dalle.signForm(form2);
+    polar.signForm(form4);
 
     std::cout << "==============Destructor Check==============" << std::endl;
   } catch (std::exception &e) {

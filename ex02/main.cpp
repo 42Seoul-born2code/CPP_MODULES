@@ -1,47 +1,46 @@
 #include <iostream>
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Bureaucrat.hpp"
 
 int main(void) {
-  {
-    Animal *animals[10];
+  try {
+    std::cout << "==============Bureaucrat Constructor Check==============" << std::endl;
+    Bureaucrat kevin("Kevin", 1);
+    Bureaucrat alex("Alex", 50);
+    Bureaucrat jenny("Jenny", 130);
 
-    std::cout << "===========Create 10 Animals===========" << std::endl;
-    for (int i = 0; i < 5; i++) animals[i] = new Dog();
-    for (int i = 5; i < 10; i++) animals[i] = new Cat();
+    std::cout << "==============Concrete Form Constructor Check==============" << std::endl;
+    ShrubberyCreationForm shrubbery("home");
+    RobotomyRequestForm roboto("office");
+    PresidentialPardonForm presidential("harry");
 
-    std::cout << "===========makeSound()===========" << std::endl;
-    for (int i = 0; i < 5; i++) animals[i]->makeSound();
-    for (int i = 5; i < 10; i++) animals[i]->makeSound();
+    std::cout << shrubbery << std::endl;
+    std::cout << roboto << std::endl;
+    std::cout << presidential << std::endl;
 
-    std::cout << "===========Delete 10 Animals===========" << std::endl;
-    for (int i = 0; i < 5; i++) delete animals[i];
-    for (int i = 5; i < 10; i++) delete animals[i];
+    std::cout << "==============ShrubberyCreationForm Check==============" << std::endl;
+    jenny.executeForm(shrubbery); // NotSignedException
+    jenny.signForm(shrubbery);
+    jenny.executeForm(shrubbery);
 
-    std::cout << "===========Check DeepCopy : Copy Constructor===========" << std::endl;
-    Dog src;
-    Dog dst(src);
+    std::cout << "==============RobotomyRequestForm Check==============" << std::endl;
+    alex.signForm(roboto);
+    alex.executeForm(roboto); // GradeTooLowException
+    kevin.executeForm(roboto);
 
-    Dog tmp;
-    dst = tmp;
+    std::cout << "==============PresidentialPardonForm Check==============" << std::endl;
+    kevin.signForm(presidential);
+    jenny.executeForm(presidential); // GradeTooLowException
+    alex.executeForm(presidential); // GradeTooLowException
+    kevin.executeForm(presidential);
 
-    std::cout << "Address of src brain: " << src.getBrain() << std::endl;
-    std::cout << "Address of dst brain: " << dst.getBrain() << std::endl;
-
-    std::cout << "Address of src brain->ideas: " << src.getBrain()->getIdeas() << std::endl;
-    std::cout << "Address of dst brain->ideas: " << dst.getBrain()->getIdeas() << std::endl;
-
-	// std::cout << "===========Animal Abstract class check===========" << std::endl;
-	// // 컴파일 에러
-	// Animal animal; 
-	// animal.makeSound();
-
-    std::cout << "===========Destructor called===========" << std::endl;
+    std::cout << "==============Destructor Check==============" << std::endl;
+  } catch (std::exception &e) {
+    std::cout << e.what() << std::endl;
   }
-
-  std::cout << "===========Leaks check===========" << std::endl;
-  system("leaks outfile");
 
   return 0;
 }
