@@ -8,9 +8,9 @@
 int main(void) {
   try {
     std::cout << "==============Bureaucrat Constructor Check==============" << std::endl;
-    Bureaucrat kevin("Kevin", 1);
-    Bureaucrat alex("Alex", 50);
-    Bureaucrat jenny("Jenny", 130);
+    Bureaucrat jeongkpa("jeongkpa", 1);
+    Bureaucrat wonkim("wonkim", 50);
+    Bureaucrat joonhan("joonhan", 130);
 
     std::cout << "==============Concrete Form Constructor Check==============" << std::endl;
     ShrubberyCreationForm shrubbery("home");
@@ -22,20 +22,20 @@ int main(void) {
     std::cout << presidential << std::endl;
 
     std::cout << "==============ShrubberyCreationForm Check==============" << std::endl;
-    jenny.executeForm(shrubbery); // NotSignedException
-    jenny.signForm(shrubbery);
-    jenny.executeForm(shrubbery);
+    joonhan.executeForm(shrubbery); // NotSignedException
+    joonhan.signForm(shrubbery);
+    joonhan.executeForm(shrubbery);
 
     std::cout << "==============RobotomyRequestForm Check==============" << std::endl;
-    alex.signForm(roboto);
-    alex.executeForm(roboto); // GradeTooLowException
-    kevin.executeForm(roboto);
+    wonkim.signForm(roboto);
+    wonkim.executeForm(roboto); // GradeTooLowException
+    jeongkpa.executeForm(roboto);
 
     std::cout << "==============PresidentialPardonForm Check==============" << std::endl;
-    kevin.signForm(presidential);
-    jenny.executeForm(presidential); // GradeTooLowException
-    alex.executeForm(presidential); // GradeTooLowException
-    kevin.executeForm(presidential);
+    jeongkpa.signForm(presidential);
+    joonhan.executeForm(presidential); // GradeTooLowException
+    wonkim.executeForm(presidential); // GradeTooLowException
+    jeongkpa.executeForm(presidential);
 
     std::cout << "==============Destructor Check==============" << std::endl;
   } catch (std::exception &e) {

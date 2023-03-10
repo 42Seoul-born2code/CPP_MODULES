@@ -21,7 +21,7 @@ int main(void) {
     bureaucrat.executeForm(*form);
 
     std::cout << "==============PresidentialPardonForm Check==============" << std::endl;
-    form = someRandomIntern.makeForm("PresidentialPardonFom", "pres");
+    form = someRandomIntern.makeForm("PresidentialPardonForm", "pres");
     bureaucrat.signForm(*form);
     bureaucrat.executeForm(*form);
 

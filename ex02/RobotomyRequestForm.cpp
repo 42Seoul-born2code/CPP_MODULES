@@ -38,5 +38,4 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
   } else {
     std::cout << getName() << " Robotomize failed..." << std::endl;
   }
-  std::cout << executor.getName() << " executed " << (*this).getName() << std::endl;
 }
