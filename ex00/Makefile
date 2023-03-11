@@ -8,9 +8,9 @@ else
 endif
 
 NAME	=	outfile
-SRC		=	main.cpp		\
-			Bureaucrat.cpp
-			
+SRC		=	main.cpp					\
+			Convertor.cpp
+
 OBJ		=	$(SRC:%.cpp=%.o)
 
 %.o	:	%.cpp
